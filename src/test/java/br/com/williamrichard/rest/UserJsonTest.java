@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 import static java.lang.Integer.valueOf;
+import static org.apache.commons.codec.digest.UnixCrypt.body;
 import static org.hamcrest.Matchers.*;
 
 public class UserJsonTest {
@@ -65,6 +66,9 @@ public class UserJsonTest {
             .body("id", is(1))
             .body("name", containsString("Ana"))
             .body("filhos", hasSize(2))
-            .body("filhos[0].name", is("Zezinho"));
+            .body("filhos[0].name", is("Zezinho"))
+            .body("filhos[1].name", is("Luizinho"))
+
+        ;
     }
 }

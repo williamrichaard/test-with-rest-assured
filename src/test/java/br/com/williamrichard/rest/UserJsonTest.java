@@ -64,6 +64,7 @@ public class UserJsonTest {
             .statusCode(200)
             .body("id", is(1))
             .body("name", containsString("Ana"))
-
+            .body("filhos", hasSize(2))
+            .body("endereco.numero", is(0));
     }
 }

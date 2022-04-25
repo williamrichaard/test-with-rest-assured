@@ -9,7 +9,6 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 import static java.lang.Integer.valueOf;
-import static org.apache.commons.codec.digest.UnixCrypt.body;
 import static org.hamcrest.Matchers.*;
 
 public class UserJsonTest {
@@ -59,15 +58,18 @@ public class UserJsonTest {
     @Test
     public void deveVerificarLista() {
         given()
-            .when()
+        .when()
             .get("http://restapi.wcaquino.me/users/3")
-            .then()
+        .then()
             .statusCode(200)
             .body("id", is(1))
             .body("name", containsString("Ana"))
             .body("filhos", hasSize(2))
             .body("filhos[0].name", is("Zezinho"))
             .body("filhos[1].name", is("Luizinho"))
+            .body("filhos[1].name", is("Luizinho"))
+            .body("filhos.name", hasItem("Zezinho"))
+            .body("filhos.name", hasItems("Zezinho", "Luizinho"))
 
         ;
     }

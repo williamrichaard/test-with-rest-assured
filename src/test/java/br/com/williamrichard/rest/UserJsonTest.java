@@ -54,4 +54,16 @@ public class UserJsonTest {
             .body("endereco.rua", is("Rua dos Bobos"))
             .body("endereco.numero", is(0));
     }
+
+    @Test
+    public void deveVerificarLista() {
+        given()
+            .when()
+            .get("http://restapi.wcaquino.me/users/3")
+            .then()
+            .statusCode(200)
+            .body("id", is(1))
+            .body("name", containsString("Ana"))
+
+    }
 }

@@ -69,8 +69,6 @@ public class UserJsonTest {
             .body("filhos[1].name", is("Luizinho"))
             .body("filhos[1].name", is("Luizinho"))
             .body("filhos.name", hasItem("Zezinho"))
-            .body("filhos.name", hasItems("Zezinho", "Luizinho"))
-
-        ;
+            .body("filhos.name", hasItems("Zezinho", "Luizinho"));
     }
 }

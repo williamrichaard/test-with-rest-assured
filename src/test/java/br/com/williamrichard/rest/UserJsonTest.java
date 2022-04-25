@@ -62,7 +62,7 @@ public class UserJsonTest {
             .get("http://restapi.wcaquino.me/users/3")
         .then()
             .statusCode(200)
-            .body("id", is(1))
+            .body("id", is(3))
             .body("name", containsString("Ana"))
             .body("filhos", hasSize(2))
             .body("filhos[0].name", is("Zezinho"))

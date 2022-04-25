@@ -65,6 +65,6 @@ public class UserJsonTest {
             .body("id", is(1))
             .body("name", containsString("Ana"))
             .body("filhos", hasSize(2))
-            .body("endereco.numero", is(0));
+            .body("filhos[0].name", is("Zezinho"));
     }
 }

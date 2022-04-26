@@ -71,4 +71,9 @@ public class UserJsonTest {
             .body("filhos.name", hasItem("Zezinho"))
             .body("filhos.name", hasItems("Zezinho", "Luizinho"));
     }
+
+    @Test
+    public void deveVerificarUsuarioInexistente() {
+
+    }
 }

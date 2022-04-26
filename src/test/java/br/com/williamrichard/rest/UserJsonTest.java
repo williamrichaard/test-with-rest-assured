@@ -74,6 +74,10 @@ public class UserJsonTest {
 
     @Test
     public void deveVerificarUsuarioInexistente() {
+        given()
+        .when()
+            .get("http://restapi.wcaquino.me/users/3")
+        .then()
 
     }
 }

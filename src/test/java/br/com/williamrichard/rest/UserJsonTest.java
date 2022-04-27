@@ -94,6 +94,7 @@ public class UserJsonTest {
             .body("$", hasSize(3)) //pode deixar "" branco retirando o $
             .body("name", hasItems("João da Silva", "Maria Joaquina", "Ana Júlia"))
             .body("age[1]", is(25))
-            .body("filhos.name", hasItem(Arrays.asList("Zezinho", "Luizinho")));
+            .body("filhos.name", hasItem(Arrays.asList("Zezinho", "Luizinho")))
+            .body("salary", contains(1234.5678f, 2500, null));
     }
 }

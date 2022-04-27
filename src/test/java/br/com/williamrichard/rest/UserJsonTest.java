@@ -90,6 +90,7 @@ public class UserJsonTest {
         .then()
             .statusCode(200)
             .body("$", hasSize(3)) //pode deixar "" branco retirando o $
-            .body("name", hasItems(""));
+            .body("name", hasItems("João da Silva", "Maria Joaquina", "Ana Júlia"))
+            .body("age[1]", is(25));
     }
 }

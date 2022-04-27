@@ -89,6 +89,7 @@ public class UserJsonTest {
             .get("http://restapi.wcaquino.me/users")
         .then()
             .statusCode(200)
-            .body("$", hasSize(3));
+            .body("$", hasSize(3)) //pode deixar "" branco retirando o $
+            .body("name", hasItems(""));
     }
 }

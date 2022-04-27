@@ -84,6 +84,11 @@ public class UserJsonTest {
 
     @Test
     public void deveVerificarListaRaiz() {
-
+        given()
+        .when()
+            .get("http://restapi.wcaquino.me/users")
+        .then()
+            .statusCode(200)
+            .body("$", hasSize(3));
     }
 }

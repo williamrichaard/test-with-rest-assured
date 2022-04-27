@@ -81,4 +81,9 @@ public class UserJsonTest {
             .statusCode(404)
             .body("error", is("Usuário inexistente"));
     }
+
+    @Test
+    public void deveVerificarListaRaiz() {
+
+    }
 }

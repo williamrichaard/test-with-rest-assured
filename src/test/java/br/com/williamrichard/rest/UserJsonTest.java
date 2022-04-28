@@ -100,6 +100,12 @@ public class UserJsonTest {
 
     @Test
     public void devoFazerVerificacoesAvancadas() {
-
+        given()
+        .when()
+        .get("http://restapi.wcaquino.me/users")
+            .then()
+            .statusCode(200)
+            .body("$", hasSize(3))
+            .body("age.findAll{it <= 25}.size()", is(2));
     }
 }

@@ -97,4 +97,9 @@ public class UserJsonTest {
             .body("filhos.name", hasItem(Arrays.asList("Zezinho", "Luizinho")))
             .body("salary", contains(1234.5678f, 2500, null));
     }
+
+    @Test
+    public void devoFazerVerificacoesAvancadas() {
+
+    }
 }

@@ -112,6 +112,7 @@ public class UserJsonTest {
             .body("findAll{it.age <= 25}[0].name", is("Maria Joaquina"))
             .body("findAll{it.age <= 25}[-1].name", is("Ana Júlia"))
             .body("find{it.age <= 25}.name", is("Maria Joaquina"))
-            .body("findAll{it.name.contains('n')}.name", hasItems("Maria Joaquina", "Ana Júlia"));
+            .body("findAll{it.name.contains('n')}.name", hasItems("Maria Joaquina", "Ana Júlia"))
+            .body("findAll{it.name.length() > 10}.name", hasItems("João da Silva", "Maria Joaquina"));
     }
 }

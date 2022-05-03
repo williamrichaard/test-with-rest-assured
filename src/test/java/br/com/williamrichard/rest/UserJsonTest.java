@@ -123,4 +123,9 @@ public class UserJsonTest {
             .body("salary.findAll{it != null}.sum()", is(closeTo(3734.5678f, 0.001)))
             .body("salary.findAll{it != null}.sum()", allOf(greaterThan(3000d), lessThan(5000d)));
     }
+
+    @Test
+    public void devoUnirJsonPathComJava() {
+
+    }
 }

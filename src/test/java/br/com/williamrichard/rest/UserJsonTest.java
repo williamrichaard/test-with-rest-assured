@@ -120,6 +120,7 @@ public class UserJsonTest {
             .body("age.collect{it * 2}", hasItems(60, 50, 40))
             .body("id.max()", is(3))
             .body("salary.min()", is(1234.5678f))
-            .body("salary.findAll{it != null}.sum()", is(closeTo(3734.5678f, 0.001)));
+            .body("salary.findAll{it != null}.sum()", is(closeTo(3734.5678f, 0.001)))
+            .body("salary.findAll{it != null}.sum()", allOf(greaterThan(3000d), lessThan(5000d)));
     }
 }

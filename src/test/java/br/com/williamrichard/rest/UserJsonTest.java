@@ -116,6 +116,7 @@ public class UserJsonTest {
             .body("findAll{it.name.length() > 10}.name", hasItems("João da Silva", "Maria Joaquina"))
             .body("name.collect{it.toUpperCase()}", hasItem("MARIA JOAQUINA"))
             .body("name.findAll{it.startsWith('Maria')}.collect{it.toUpperCase()}", hasItem("MARIA JOAQUINA"))
-            .body("name.findAll{it.startsWith('Maria')}.collect{it.toUpperCase()}.toArray()", allOf(arrayContaining("MARIA JOAQUINA"), arrayWithSize(1)));
+            .body("name.findAll{it.startsWith('Maria')}.collect{it.toUpperCase()}.toArray()", allOf(arrayContaining("MARIA JOAQUINA"), arrayWithSize(1)))
+            .body("age.collect{it * 2}", hasItems(60, 50, 40));
     }
 }

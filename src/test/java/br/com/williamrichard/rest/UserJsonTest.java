@@ -102,8 +102,8 @@ public class UserJsonTest {
     public void devoFazerVerificacoesAvancadas() {
         given()
         .when()
-        .get("http://restapi.wcaquino.me/users")
-            .then()
+            .get("http://restapi.wcaquino.me/users")
+        .then()
             .statusCode(200)
             .body("$", hasSize(3))
             .body("age.findAll{it <= 25}.size()", is(2))
@@ -126,6 +126,11 @@ public class UserJsonTest {
 
     @Test
     public void devoUnirJsonPathComJava() {
-
+        given()
+        .when()
+            .get("http://restapi.wcaquino.me/users")
+        .then()
+                .statusCode(200)
+                .extract().path("name.findAll{it.startsWith('Maria')}");
     }
 }

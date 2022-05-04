@@ -7,6 +7,7 @@ import io.restassured.response.Response;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import static io.restassured.RestAssured.given;
@@ -126,11 +127,12 @@ public class UserJsonTest {
 
     @Test
     public void devoUnirJsonPathComJava() {
-        given()
-        .when()
-            .get("http://restapi.wcaquino.me/users")
-        .then()
-                .statusCode(200)
-                .extract().path("name.findAll{it.startsWith('Maria')}");
+        ArrayList<String> names =
+            given()
+            .when()
+                .get("http://restapi.wcaquino.me/users")
+            .then()
+                    .statusCode(200)
+                    .extract().path("name.findAll{it.startsWith('Maria')}");
     }
 }

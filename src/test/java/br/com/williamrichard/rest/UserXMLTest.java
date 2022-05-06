@@ -10,6 +10,8 @@ public class UserXMLTest {
     public void devoTrabalharComXML() {
         given()
         .when()
-        .then();
+            .get("https://restapi.wcaquino.me/usersXML/3")
+        .then()
+        ;
     }
 }

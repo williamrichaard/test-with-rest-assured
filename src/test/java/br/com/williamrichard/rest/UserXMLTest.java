@@ -12,6 +12,6 @@ public class UserXMLTest {
         .when()
             .get("https://restapi.wcaquino.me/usersXML/3")
         .then()
-        ;
+            .statusCode(200);
     }
 }

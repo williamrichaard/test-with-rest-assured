@@ -18,6 +18,7 @@ public class UserXMLTest {
             .body("user.@id", is("3"))
             .body("user.filhos.name.size()", is(2))
             .body("user.filhos.name[0]", is("Zezinho"))
+            .body("user.filhos.name[1]", is("Luizinho"))
 
         ;
     }

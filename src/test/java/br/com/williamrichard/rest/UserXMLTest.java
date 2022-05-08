@@ -12,6 +12,7 @@ public class UserXMLTest {
         .when()
             .get("https://restapi.wcaquino.me/usersXML/3")
         .then()
-            .statusCode(200);
+            .statusCode(200)
+            .body("user.name", is("Ana Julia"));
     }
 }

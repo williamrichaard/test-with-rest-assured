@@ -16,6 +16,9 @@ public class UserXMLTest {
             .statusCode(200)
             .body("user.name", is("Ana Julia"))
             .body("user.@id", is("3"))
+            .body("user.filhos.name.size()", is(2))
+            .body("user.filhos.name[0]", is("Zezinho"))
+
         ;
     }
 }

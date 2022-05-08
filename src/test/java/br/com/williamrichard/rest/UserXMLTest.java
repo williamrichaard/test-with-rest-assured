@@ -15,6 +15,7 @@ public class UserXMLTest {
         .then()
             .statusCode(200)
             .body("user.name", is("Ana Julia"))
+            .body("user.@id", is("3"))
         ;
     }
 }

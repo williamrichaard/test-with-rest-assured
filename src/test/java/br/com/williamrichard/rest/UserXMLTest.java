@@ -16,7 +16,7 @@ public class UserXMLTest {
             .statusCode(200)
             .rootPath("user")
             .body("name", is("Ana Julia"))
-            .body("user.@id", is("3"))
+            .body("@id", is("3"))
             .body("user.filhos.name.size()", is(2))
             .body("user.filhos.name[0]", is("Zezinho"))
             .body("user.filhos.name[1]", is("Luizinho"))

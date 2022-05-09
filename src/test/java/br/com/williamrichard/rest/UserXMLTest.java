@@ -20,6 +20,6 @@ public class UserXMLTest {
             .body("user.filhos.name[0]", is("Zezinho"))
             .body("user.filhos.name[1]", is("Luizinho"))
             .body("user.filhos.name", hasItem("Luizinho"))
-        ;
+            .body("user.filhos.name", hasItems("Luizinho", "Zezinho"));
     }
 }

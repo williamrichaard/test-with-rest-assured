@@ -14,6 +14,7 @@ public class UserXMLTest {
             .get("https://restapi.wcaquino.me/usersXML/3")
         .then()
             .statusCode(200)
+
             .rootPath("user")
             .body("name", is("Ana Julia"))
             .body("@id", is("3"))

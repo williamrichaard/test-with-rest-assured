@@ -25,6 +25,7 @@ public class UserXMLTest {
             .detachRootPath("filhos")
             .body("filhos.name[0]", is("Zezinho"))
             .body("filhos.name[1]", is("Luizinho"))
+            .appendRootPath("filhos")
             .body("filhos.name", hasItem("Luizinho"))
             .body("filhos.name", hasItems("Luizinho", "Zezinho"));
     }

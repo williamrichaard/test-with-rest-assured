@@ -22,6 +22,7 @@ public class UserXMLTest {
             .rootPath("user.filhos")
             .body("name.size()", is(2))
 
+            .detachRootPath("filhos")
             .body("filhos.name[0]", is("Zezinho"))
             .body("filhos.name[1]", is("Luizinho"))
             .body("filhos.name", hasItem("Luizinho"))

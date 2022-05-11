@@ -18,8 +18,10 @@ public class UserXMLTest {
             .rootPath("user")
             .body("name", is("Ana Julia"))
             .body("@id", is("3"))
+
             .rootPath("user.filhos")
-            .body("filhos.name.size()", is(2))
+            .body("name.size()", is(2))
+
             .body("filhos.name[0]", is("Zezinho"))
             .body("filhos.name[1]", is("Luizinho"))
             .body("filhos.name", hasItem("Luizinho"))

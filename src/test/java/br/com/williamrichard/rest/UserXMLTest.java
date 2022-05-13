@@ -34,10 +34,10 @@ public class UserXMLTest {
     public void devoFazerPesquisasAvancadasComXML() {
         given()
         .when()
-            .get("https://restapi.wcaquino.me/usersXML/3")
+            .get("https://restapi.wcaquino.me/usersXML")
         .then()
             .statusCode(200)
-
+            .body("users.user.size()", is(3))
         ;
     }
 }

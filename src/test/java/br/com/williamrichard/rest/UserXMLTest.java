@@ -39,6 +39,7 @@ public class UserXMLTest {
             .statusCode(200)
             .body("users.user.size()", is(3))
             .body("users.user.findAll{it.age.toInteger() <= 25}.size()", is(2))
+            .body("users.user.@id", hasItems("1", "2", "3"))
         ;
     }
 }

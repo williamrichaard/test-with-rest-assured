@@ -38,6 +38,7 @@ public class UserXMLTest {
         .then()
             .statusCode(200)
             .body("users.user.size()", is(3))
+            .body("users.user.findAll{it.age toInteger() <= 25}", is(2))
         ;
     }
 }

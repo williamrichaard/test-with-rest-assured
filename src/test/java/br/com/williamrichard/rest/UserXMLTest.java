@@ -29,4 +29,15 @@ public class UserXMLTest {
             .body("name", hasItem("Luizinho"))
             .body("name", hasItems("Luizinho", "Zezinho"));
     }
+
+    @Test
+    public void devoFazerPesquisasAvancadasComXML() {
+        given()
+        .when()
+            .get("https://restapi.wcaquino.me/usersXML/3")
+        .then()
+            .statusCode(200)
+
+        ;
+    }
 }

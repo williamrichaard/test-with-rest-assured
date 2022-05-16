@@ -41,6 +41,7 @@ public class UserXMLTest {
             .body("users.user.findAll{it.age.toInteger() <= 25}.size()", is(2))
             .body("users.user.@id", hasItems("1", "2", "3"))
             .body("users.user.find{it.age == 25}.name", is("Maria Joaquina"))
+            .body("users.user.findAll{it.name.toString().contains('n')}.name", hasItems("Maria Joaquina", "Ana Julia"))
         ;
     }
 }

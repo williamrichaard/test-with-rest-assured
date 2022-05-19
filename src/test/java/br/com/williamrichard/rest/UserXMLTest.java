@@ -44,6 +44,7 @@ public class UserXMLTest {
             .body("users.user.findAll{it.name.toString().contains('n')}.name", hasItems("Maria Joaquina", "Ana Julia"))
             .body("users.user.salary.find{it != null}", is("1234.5678"))
             .body("users.user.salary.find{it != null}.toDouble()", is(1234.5678d))
+            .body("users.user.age.collect{it.toInteger() * 2}", hasItems(40, 50, 60))
         ;
     }
 }

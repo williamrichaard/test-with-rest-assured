@@ -47,4 +47,15 @@ public class UserXMLTest {
             .body("users.user.age.collect{it.toInteger() * 2}", hasItems(40, 50, 60))
             .body("users.user.name.findAll{it.toString().startsWith('Maria')}.collect{it.toString().toUpperCase()}", is("MARIA JOAQUINA"));
     }
+
+    @Test
+    public void devoFazerPesquisasAvancadasComXMLEJava() {
+        given()
+        .when()
+            .get("https://restapi.wcaquino.me/usersXML")
+        .then()
+            .statusCode(200)
+            .extract().path("users.user.name.findAll.{it.toString().startsWith('Maria')}")
+        ;
+    }
 }

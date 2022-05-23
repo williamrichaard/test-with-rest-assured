@@ -56,6 +56,6 @@ public class UserXMLTest {
         .then()
             .statusCode(200)
             .extract().path("users.user.name.findAll.{it.toString().startsWith('Maria')}")
-        ;
+        ;;;
     }
 }

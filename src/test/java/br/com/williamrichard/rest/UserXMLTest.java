@@ -1,5 +1,6 @@
 package br.com.williamrichard.rest;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
@@ -55,7 +56,7 @@ public class UserXMLTest {
         .get("https://restapi.wcaquino.me/usersXML")
         .then()
             .statusCode(200)
-            .extract().path("users.user.name.findAll.{it.toString().startsWith('Maria')}")
-        ;
+            .extract().path("users.user.name.findAll.{it.toString().startsWith('Maria')}");
+        Assert.assertEquals("Maria Joaquina".toUpperCase(), name.toUpperCase());
     }
 }

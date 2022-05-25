@@ -50,12 +50,12 @@ public class UserXMLTest {
 
     @Test
     public void devoFazerPesquisasAvancadasComXMLEJava() {
-        Object path = given()
-                .when()
-                .get("https://restapi.wcaquino.me/usersXML")
-                .then()
-                .statusCode(200)
-                .extract().path("users.user.name.findAll.{it.toString().startsWith('Maria')}")
+        String name = given()
+        .when()
+        .get("https://restapi.wcaquino.me/usersXML")
+        .then()
+            .statusCode(200)
+            .extract().path("users.user.name.findAll.{it.toString().startsWith('Maria')}")
         ;
     }
 }

@@ -47,6 +47,7 @@ public class UserXMLTest {
             .get("/usersXML/3")
         .then()
             //.statusCode(200)
+            .spec(resSpec)
 
             .rootPath("user")
             .body("name", is("Ana Julia"))

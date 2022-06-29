@@ -1,5 +1,6 @@
 package br.com.williamrichard.rest;
 
+import io.restassured.RestAssured;
 import io.restassured.internal.path.xml.NodeImpl;
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,6 +14,8 @@ public class UserXMLTest {
 
     @Test
     public void devoTrabalharComXML() {
+        RestAssured.baseURI = "https://restapi.wcaquino.me";
+
         given()
         .when()
             .get("https://restapi.wcaquino.me/usersXML/3")

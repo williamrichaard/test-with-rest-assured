@@ -1,6 +1,9 @@
 package br.com.williamrichard.rest;
 
 import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseBuilder;
+import io.restassured.filter.log.LogDetail;
 import io.restassured.internal.path.xml.NodeImpl;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -13,18 +16,28 @@ import static org.hamcrest.Matchers.*;
 
 public class UserXMLTest {
 
+    public static
+
     @BeforeClass
     public static void setup() {
         RestAssured.baseURI = "https://restapi.wcaquino.me";
         //RestAssured.port = 443;
         //RestAssured.basePath = "/v2";
+
+        RequestSpecBuilder reqBuilder = new RequestSpecBuilder();
+        reqBuilder.log(LogDetail.ALL);
+        reqSpec = reqBuilder.build();
+
+        ResponseBuilder resBuilder = new ResponseBuilder();
+        resBuilder.setStatusCode(201);
+        resSpec = resBuilder.build();
     }
 
     @Test
     public void devoTrabalharComXML() {
 
         given()
-            .log().all()
+            .spec(reqSpec)
         .when()
             .get("/usersXML/3")
         .then()

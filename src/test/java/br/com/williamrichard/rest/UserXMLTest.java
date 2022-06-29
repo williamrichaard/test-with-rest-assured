@@ -14,9 +14,9 @@ public class UserXMLTest {
 
     @Test
     public void devoTrabalharComXML() {
-        RestAssured.baseURI = "https://restapi.wcaquino.me";
-        RestAssured.port = 443;
-        RestAssured.basePath = "";
+        RestAssured.baseURI = "http://restapi.wcaquino.me";
+        //RestAssured.port = 443;
+        //RestAssured.basePath = "/v2";
 
         given()
         .when()

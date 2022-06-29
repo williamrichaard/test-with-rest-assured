@@ -14,13 +14,14 @@ public class UserXMLTest {
 
     @Test
     public void devoTrabalharComXML() {
-        RestAssured.baseURI = "http://restapi.wcaquino.me";
+        RestAssured.baseURI = "https://restapi.wcaquino.me";
         //RestAssured.port = 443;
         //RestAssured.basePath = "/v2";
 
         given()
+            .log().all()
         .when()
-            .get("https://restapi.wcaquino.me/usersXML/3")
+            .get("/usersXML/3")
         .then()
             .statusCode(200)
 

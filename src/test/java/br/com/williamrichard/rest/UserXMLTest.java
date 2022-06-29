@@ -34,20 +34,21 @@ public class UserXMLTest {
         reqSpec = reqBuilder.build();
 
         ResponseSpecBuilder resBuilder = new ResponseSpecBuilder();
-        resBuilder.expectStatusCode(201);
+        resBuilder.expectStatusCode(200);
         resSpec = resBuilder.build();
+
+        RestAssured.requestSpecification = reqSpec;
+        RestAssured.responseSpecification = resSpec;
     }
 
     @Test
     public void devoTrabalharComXML() {
 
         given()
-            .spec(reqSpec)
         .when()
             .get("/usersXML/3")
         .then()
             //.statusCode(200)
-            .spec(resSpec)
 
             .rootPath("user")
             .body("name", is("Ana Julia"))
@@ -70,7 +71,6 @@ public class UserXMLTest {
         .when()
             .get("/usersXML")
         .then()
-            .statusCode(200)
             .body("users.user.size()", is(3))
             .body("users.user.findAll{it.age.toInteger() <= 25}.size()", is(2))
             .body("users.user.@id", hasItems("1", "2", "3"))
@@ -88,7 +88,6 @@ public class UserXMLTest {
         .when()
         .get("/usersXML")
         .then()
-            .statusCode(200)
             .extract().path("users.user.name.findAll{it.toString().contains('n')}");
         Assert.assertEquals(2, nomes.size());
         Assert.assertEquals("Maria Joaquina".toUpperCase(), nomes.get(0).toString().toUpperCase());

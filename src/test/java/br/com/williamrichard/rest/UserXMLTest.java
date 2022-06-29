@@ -3,8 +3,11 @@ package br.com.williamrichard.rest;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.internal.path.xml.NodeImpl;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -16,7 +19,9 @@ import static org.hamcrest.Matchers.*;
 
 public class UserXMLTest {
 
-    public static
+    public static RequestSpecification reqSpec;
+    public static ResponseSpecification resSpec;
+
 
     @BeforeClass
     public static void setup() {
@@ -28,8 +33,8 @@ public class UserXMLTest {
         reqBuilder.log(LogDetail.ALL);
         reqSpec = reqBuilder.build();
 
-        ResponseBuilder resBuilder = new ResponseBuilder();
-        resBuilder.setStatusCode(201);
+        ResponseSpecBuilder resBuilder = new ResponseSpecBuilder();
+        resBuilder.expectStatusCode(201);
         resSpec = resBuilder.build();
     }
 
@@ -41,7 +46,7 @@ public class UserXMLTest {
         .when()
             .get("/usersXML/3")
         .then()
-            .statusCode(200)
+            //.statusCode(200)
 
             .rootPath("user")
             .body("name", is("Ana Julia"))

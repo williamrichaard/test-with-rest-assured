@@ -3,6 +3,7 @@ package br.com.williamrichard.rest;
 import io.restassured.RestAssured;
 import io.restassured.internal.path.xml.NodeImpl;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -12,11 +13,15 @@ import static org.hamcrest.Matchers.*;
 
 public class UserXMLTest {
 
-    @Test
-    public void devoTrabalharComXML() {
+    @BeforeClass
+    public static void setup() {
         RestAssured.baseURI = "https://restapi.wcaquino.me";
         //RestAssured.port = 443;
         //RestAssured.basePath = "/v2";
+    }
+
+    @Test
+    public void devoTrabalharComXML() {
 
         given()
             .log().all()
@@ -44,7 +49,7 @@ public class UserXMLTest {
     public void devoFazerPesquisasAvancadasComXML() {
         given()
         .when()
-            .get("https://restapi.wcaquino.me/usersXML")
+            .get("/usersXML")
         .then()
             .statusCode(200)
             .body("users.user.size()", is(3))
@@ -62,7 +67,7 @@ public class UserXMLTest {
     public void devoFazerPesquisasAvancadasComXMLEJava() {
         ArrayList<NodeImpl> nomes = given()
         .when()
-        .get("https://restapi.wcaquino.me/usersXML")
+        .get("/usersXML")
         .then()
             .statusCode(200)
             .extract().path("users.user.name.findAll{it.toString().contains('n')}");

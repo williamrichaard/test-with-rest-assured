@@ -91,6 +91,6 @@ public class UserXMLTest {
             .extract().path("users.user.name.findAll{it.toString().contains('n')}");
         Assert.assertEquals(2, nomes.size());
         Assert.assertEquals("Maria Joaquina".toUpperCase(), nomes.get(0).toString().toUpperCase());
-        Assert.assertTrue("ANA JULIA".equalsIgnoreCase(nomes.get(1).toString()));;
+        Assert.assertTrue("ANA JULIA".equalsIgnoreCase(nomes.get(1).toString()));
     }
 }
